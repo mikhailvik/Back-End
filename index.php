@@ -40,6 +40,30 @@ include "navigeringen.php";
 
 
 
+
+
+<!-- Här börjar sidans "main-section" -->
+
+<section id="main-section">
+	<div class="container-fluid">
+		<div class="row align-items-center">
+			<h2 >Uppgift 1</h2>
+			<?php include "uppgift1.php";?>
+
+             
+            <h2 >Uppgift 2</h2>
+			<?php include "uppgift2.php";?>
+
+
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
 <!-- Här börjar sidans 40/60 sektion -->
 
 <section id="fortysixty">
