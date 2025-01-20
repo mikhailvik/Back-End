@@ -1,0 +1,94 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap');
+
+
+
+* {
+	box-sizing: border-box;
+}
+
+body{
+	margin: 0;
+	padding:0;
+	background-color: #F5B7B1;
+	font-family: "Orelega One";
+}
+
+
+
+header {
+  position: relative;
+  background-color: black;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+
+.formularregister {
+	background-image: url("../images/bibliotek4.jpg");
+	background-size: cover;
+	box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.5);
+	text-align: center;
+	padding-top:100px;
+	padding-bottom:100px;
+	color: white;
+	text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+
+}
+
+.formularlogin {
+	background-image: url("../images/27.jpg");
+	background-size: cover;
+	box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.5);
+	text-align: center;
+	padding-top:100px;
+	padding-bottom:250px;
+	color: white;
+	text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+
+}
+
+
+
+
+#page-hero {
+	background-image: url("../images/bibliotek4.jpg");
+	background-size: cover;
+	box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.5);
+}
+
+
+
+
+footer {
+	background-color: ;
+}
+
+
+#copyright{
+	background-color: black;
+	color: white;
+	text-align: center;
+	padding-top:10px;
+	padding-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
