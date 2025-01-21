@@ -54,6 +54,16 @@ include "navigeringen.php";
             <h2 >Uppgift 2</h2>
 			<?php include "uppgift2.php";?>
 
+			<h2 >Uppgift 3</h2>
+			<form action = "index.php" method = "GET">
+				Name: <input type = "text" name = "name"><br>
+				E-mail: <input type = "text" name = "email"><br>
+				<input type = "submit">
+            </form>	
+			Welcome <?php print($_REQUEST["name"]); ?> <br>
+			Your email address is : <?php print($_REQUEST["email"]); ?> <br>
+			<?php include "uppgift3.php";?>
+
 
 		</div>
 	</div>
