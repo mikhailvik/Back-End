@@ -1,7 +1,7 @@
 
 <?php 
 #Uppgift1
-print("Serverns ip:" .$_SERVER['SERVER_ADDR']);
+print("Serverns ip: " .$_SERVER['SERVER_ADDR']);
 print("Skriptet som körs:" .$_SERVER['PHP_SELF']);
 # phpinfo();
 

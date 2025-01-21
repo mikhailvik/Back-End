@@ -45,109 +45,32 @@ include "navigeringen.php";
 <!-- Här börjar sidans "main-section" -->
 
 <section id="main-section">
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row align-items-center">
-			<h2 >Uppgift 1</h2>
-			<?php include "uppgift1.php";?>
+		    <div class="col align-self-center text-center">
+				<h2 >Uppgift 1</h2>
+				<?php include "uppgift1.php";?>
 
-             
-            <h2 >Uppgift 2</h2>
-			<?php include "uppgift2.php";?>
-
-			<h2 >Uppgift 3</h2>
-			<form action = "index.php" method = "GET">
-				Name: <input type = "text" name = "name"><br>
-				E-mail: <input type = "text" name = "email"><br>
-				<input type = "submit">
-            </form>	
-			Welcome <?php print($_REQUEST["name"]); ?> <br>
-			Your email address is : <?php print($_REQUEST["email"]); ?> <br>
-			<?php include "uppgift3.php";?>
-
-
-		</div>
-	</div>
-</section>
-
-
-
-
-
-
-<!-- Här börjar sidans 40/60 sektion -->
-
-<section id="fortysixty">
-	<div class="container-fluid">
-		<div class="row align-items-center">
-			
-			<div class="col-md-4">
-				<img src="images/image2.jpg" alt="Seller" class="img-fluid">
-			</div>
-			
-			
-			
-			
-			<div class="col-md-8 py-5 text-center">
-				<div class="text-container">
 				
-					<h4>Vi är bäst</h4><br>
-					<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p></br>
-					<h4>Vad säljer vi?</h4><br>
-					<p>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-				</div>
-				
-			</div>
-			
-			
-			
-			
-			
-		</div>
-	</div>
-</section>
+				<h2 >Uppgift 2</h2>
+				<?php include "uppgift2.php";?>
 
-<!-- Här slutar sidans 40/60 sektion -->
-
-
-<!-- Här börjar sidans 50/50 sektion -->
-
-
-<section id="fiftyfifty">
-	<div class="container-fluid">
-		<div class="row align-items-center">
-			<div class="col-md-6 py-5 text-white text-center">
-				<div class="text-container">
-				
-					<h2>Kontaktuppgifter</h2><br>
-					<p><i class="fa fa-volume-control-phone" style="font-size:24px"></i> tel. 040 587 55 66</p>
-					<p><i class="fa fa-envelope-o" style="font-size:20px"></i> info@boksystem.fi</p>
-					<p><i class="fa fa-map-marker" style="font-size:26px"></i> 10600 Ekenäs Björknäsgatan 13a</p>
-					
-				</div>
-				
-			</div>
-			
-		
-			<!-- Vi blev här 16.12.2021 och fortsätter sedan -->
-			<div class="col-md-6">
-				<img src="images/image.png" alt="Map" class="img-fluid"><br>
+				<h2 >Uppgift 3</h2>
+				<form action = "index.php" method = "GET">
+					Name: <input type = "text" name = "name"><br>
+					E-mail: <input type = "text" name = "email"><br>
+					<input type = "submit">
+				</form>	
+				Welcome <?php print($_REQUEST["name"]); ?> <br>
+				Your email address is : <?php print($_REQUEST["email"]); ?> <br>
+				<?php include "uppgift3.php";?>
 			</div>
 		</div>
 	</div>
 </section>
-
-<!-- Här slutar sidans 50/50 sektion -->
-
-
-
-
-
-
-
-
-<?php include "footer.php";?>
 
 
 </body>
+<?php include "footer.php";?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
