@@ -13,10 +13,17 @@
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="kontakt.php">Kontakt</a></li>
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="login.php">Log in</a></li>
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="register.php">Register</a></li>
+				<!-- Visa länk till profilen om man är inloggad -->
+				<?php 
+				if($_SESSION['name']) {
+					print('<li>Profile</li>');
+				}else {
+					print('<li>Login</li>');
+				};
+				?>
 			</ul>
 
 		</div>
 
 	</div>
 </nav>
-

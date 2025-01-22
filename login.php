@@ -1,3 +1,4 @@
+<?php include "handy_methods.php" ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +17,7 @@
 
 <?php 
 include "navigeringen.php";	
+include "handy_methods.php";
 ?>
 
 
@@ -27,7 +29,7 @@ include "navigeringen.php";
 		<div class="row vh-100 justify-content-center">
 			<div class="col align-self-center text-center text-white">
 				<h1 class="text-uppercase">Viktoriia Mikhailova</h1>
-				<h2 class="display-6">Har kan man hitta information om mig!!</h2>
+				<h2 class="display-6">Har kan man hitta information om mig!</h2>
 				
 				
 				<button type="button" onclick="document.location='omoss.php'" class="btn bg-primary text-white p-3 mt-5 rounded-pill">Läs mera här</button>
@@ -48,22 +50,13 @@ include "navigeringen.php";
 	<div class="container">
 		<div class="row align-items-center">
 		    <div class="col align-self-center text-center">
-				<h2 >Uppgift 1</h2>
-				<?php include "uppgift1.php";?>
-
-				
-				<h2 >Uppgift 2</h2>
-				<?php include "uppgift2.php";?>
-
-				<h2 >Uppgift 3</h2>
-				<form action = "index.php" method = "GET">
-					Name: <input type = "text" name = "name"><br>
-					E-mail: <input type = "text" name = "email"><br>
+				<h2 >Uppgift 4</h2>
+				<form action = "login.php" method = "GET">
+					Name: <input type = "text" name = "username"><br>
+					Password: <input type = "password" name = "psw"><br>
 					<input type = "submit">
 				</form>	
-				Welcome <?php print($_REQUEST["name"]); ?> <br>
-				Your email address is : <?php print($_REQUEST["email"]); ?> <br>
-				<?php include "uppgift3.php";?>
+				<?php include "uppgift4.php";?>
 			</div>
 		</div>
 	</div>
