@@ -1,22 +1,29 @@
 
-<?php 
-#Uppgift1
-print("Serverns ip: " .$_SERVER['SERVER_ADDR']);
-print("Skriptet som körs:" .$_SERVER['PHP_SELF']);
-# phpinfo();
+<?php
+// Set cookie name and value
+$cookie_name = "first_visit";
+$cookie_value = time(); // Save the time of the first visit (in seconds)
 
-# Cookies!
-$_COOKIE_NAME = "username";
-$_COOKIE_VALUE = "mikhailv";
-setcookie($_COOKIE_NAME, $_COOKIE_VALUE, time() + (86400 * 30), "/"); 
-
-if (!isset($_COOKIE[$_COOKIE_NAME])) {
-	echo "Cookie named ' " . $_COOKIE_NAME . " ' is not set!";
+// Check if the cookie is set, if not, set it
+if (!isset($_COOKIE[$cookie_name])) {
+    // Set the cookie that will last for 30 days
+    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+    echo "Välkommen till sidan! Det här är ditt första besök.<br>";
 } else {
-	echo "Cookie ' " . $_COOKIE_NAME . " ' is set! <br>";
-	echo "Value is: " . $_COOKIE[$_COOKIE_NAME];
+    echo "Hej igen! Ditt senaste besök var: " . date("Y-m-d H:i:s", $_COOKIE[$cookie_name]) . "<br>";
 }
 
+// Display user and server information
+echo "<br>Ditt namn (om känt): " . (isset($_COOKIE['username']) ? $_COOKIE['username'] : "Okänt") . "<br>";
+echo "Ditt IP-adress: " . $_SERVER['REMOTE_ADDR'] . "<br>";
+echo "Serverns IP: " .$_SERVER['SERVER_ADDR'] . "<br>";
+echo "Serverns namn: " . $_SERVER['SERVER_NAME'] . "<br>";
+echo "Serverns tidszon: " . date_default_timezone_get() . "<br>";
+
+// Display the current script
+echo "Scriptet som körs: " . $_SERVER['PHP_SELF'] . "<br>";
+
+// Additional server information (optional)
+// Uncomment this line if you want to display full server info
+// phpinfo(); 
 ?>
-
-
