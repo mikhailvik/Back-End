@@ -21,28 +21,6 @@ include "handy_methods.php";
 
 
 
-<!-- Här börjar sidans "hero" -->
-
-<header id="page-hero">
-	<div class="container">
-		<div class="row vh-100 justify-content-center">
-			<div class="col align-self-center text-center text-white">
-				<h1 class="text-uppercase">Viktoriia Mikhailova</h1>
-				<h2 class="display-6">Har kan man hitta information om mig!</h2>
-				
-				
-				<button type="button" onclick="document.location='omoss.php'" class="btn bg-primary text-white p-3 mt-5 rounded-pill">Läs mera här</button>
-			</div>
-		</div>
-	</div>
-</header>
-
-<!-- Här slutar sidans "hero" -->
-
-
-
-
-
 <!-- Här börjar sidans "main-section" -->
 
 <section id="main-section">
