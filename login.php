@@ -16,28 +16,27 @@
 
 <?php 
 include "navigeringen.php";	
-include "handy_methods.php";
 ?>
 
 
 
-<!-- Här börjar sidans "main-section" -->
+<div class = "formularlogin">
+	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+		<h3>Log in</h3><br />
+		<label for="username">Username:</label><br />
+		<input type="text" id="username" placeholder="alex25" name="username" required="required"><br />
+				
+		<label for="password">Password:</label><br />
+		<input type="password" id="password" placeholder="xxxxx" name="password" required="required"><br />
+		<br>
+		<input type="submit" name="submit_login" value="Log in"><br />
+		<br>		
+	</form>
+	<?php include "uppgift4.php";?>
+</div>
 
-<section id="main-section">
-	<div class="container">
-		<div class="row align-items-center">
-		    <div class="col align-self-center text-center">
-				<h2 >Uppgift 4</h2>
-				<form action = "login.php" method = "GET">
-					Name: <input type = "text" name = "username"><br>
-					Password: <input type = "password" name = "psw"><br>
-					<input type = "submit">
-				</form>	
-				<?php include "uppgift4.php";?>
-			</div>
-		</div>
-	</div>
-</section>
+
+
 
 <?php include "footer.php";?>
 </body>
