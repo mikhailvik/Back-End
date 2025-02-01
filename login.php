@@ -19,7 +19,6 @@ include "navigeringen.php";
 ?>
 
 
-
 <div class = "formularlogin">
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
 		<h3>Log in</h3><br />

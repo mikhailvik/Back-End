@@ -1,8 +1,10 @@
+<?php 
+$username = $password = $password_again = $email = "";
+$usernameError = $passwordError = $passwordAgainError = $emailError = "";
+?>
 
 <?php 
 #Uppgift3
-$username = $password = $password_again = $email = "";
-$usernameError = $passwordError = $passwordAgainError = $emailError = "";
 
 //Kontrollera om formuläret har skickats
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -11,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = trim($_POST["password"]);
     $password_again = trim($_POST["password_again"]);
     $email = trim($_POST["email-field"]);
-    
 
 
   // Check errors
@@ -34,21 +35,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
+
     if (empty($usernameError) && empty($passwordError) && empty($passwordAgainError) && empty($emailError)) {   
         // lösenord
         $allowedChars = array("a", "b", "c", 1, 2, 3);
         $password = "";
         #Select chars from allowedChars at random
         #Add chars to a password string
-        for
-        #Use rand() to select character by index from allowedChars
-        rand(0, 5);
+        //for
+        //#Use rand() to select character by index from allowedChars
+        //rand(0, 5);
+
+        for ($i = 0; $i < 8; $i++) { // generate a password = 8 characters
+            $password .= $allowedChars[rand(0, count($allowedChars) - 1)];
+        }
 
         #Email the password to the user
         mail("someone@example.com", "Your password", $password);
     }
 }
-
 
 ?>
  

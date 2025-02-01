@@ -1,5 +1,9 @@
 
 <?php 
+   //Skriv ut php errors till front-enden
+   error_reporting(E_ALL);
+   ini_set('display_errors', 1); // not in production!
+
     //vi startar en php session genast när användaren anländer till sajten
     //Datan på användaren försvinner inte då man tömmer
     //Datan är lagrad på serverns sida
@@ -15,8 +19,6 @@
     return $data;
     }
   
-
-
 ?>
  
 

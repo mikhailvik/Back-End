@@ -1,4 +1,4 @@
-<?php include "handy_methods.php" ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,11 +18,8 @@
 include "navigeringen.php";	
 ?>
 
-
-
 <div class = "formularregister">
-	
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
 	    <h3>Register</h3><br />
 			<label for="username">Username:</label><br />
 			<input type="text" id="username" placeholder="alex25" name="username" value="<?php echo htmlspecialchars($username); ?>"><br />
@@ -48,18 +45,21 @@ include "navigeringen.php";
 			<input type="submit" name="submit_register" value="Register"><br />
 			<br>
 	</form>
-
-
+	
 	<div class="">
-	<span>Already a user?  </span><a class="" href="login.php">Login here!</a>
-	</div><br />
+		<span>Already a user?  </span><a class="" href="login.php">Login here!</a>
+	</div>
+	<br />
 
-	Welcome <?php print($_REQUEST["username"]); ?> <br>
-	Your email address is : <?php print($_REQUEST["email-field"]); ?> <br>
+	Welcome <?php echo isset($_REQUEST["username"]) ? htmlspecialchars($_REQUEST["username"]) : ''; ?> <br>
+    Your email address is: <?php echo isset($_REQUEST["email-field"]) ? htmlspecialchars($_REQUEST["email-field"]) : ''; ?> <br>
+
 	<?php include "uppgift3.php";?>	
 </div>	
 
-<?php include "footer.php";?>
 </body>
+
+<?php include "footer.php";?>
+<?php include "handy_methods.php" ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
