@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap');
 
 
-
 * {
 	box-sizing: border-box;
 }
@@ -16,7 +15,6 @@ body{
 }
 
 
-
 header {
   position: relative;
   background-color: black;
@@ -25,7 +23,6 @@ header {
   width: 100%;
   overflow: hidden;
 }
-
 
 
 .formularregister {
@@ -51,8 +48,6 @@ header {
 	text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
 
 }
-
-
 
 
 #page-hero {

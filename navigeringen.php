@@ -9,8 +9,8 @@
 		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Hem</a></li>
-				<li class="nav-item"><a class="nav-link active" aria-current="page" href="profile.php">Om mig</a></li>
-				<li class="nav-item"><a class="nav-link active" aria-current="page" href="kontakt.php">Kontakt</a></li>
+				<li class="nav-item"><a class="nav-link active" aria-current="page" href="visits.php">Besökare</a></li>
+				<li class="nav-item"><a class="nav-link active" aria-current="page" href="profile.php">Profilebild</a></li>
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="login.php">Log in</a></li>
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="register.php">Register</a></li>
 			</ul>
