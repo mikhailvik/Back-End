@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +14,7 @@
 <?php 
 include "navigeringen.php";	
 ?>
+
 <!-- Här börjar register-formular -->
 <div class = "formularregister">
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">

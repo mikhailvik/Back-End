@@ -52,7 +52,7 @@ if(isset($_REQUEST["submit"])) {
       echo "<h3>Previous Profile Pictures:</h3><ul>";
       foreach($files as $file) {
         if ($file !== '.' && $file !== '..') {
-          echo "<li><img src='$target_dir$file' alt='$file' width='100'></li>";
+          echo "<li><img src='$target_dir$file' alt='$file' width='100'></li></br>";
         }
       }
       echo "</ul>";
