@@ -14,6 +14,7 @@
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="profile.php">Profilebild</a></li>
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="visits.php">Besökare</a></li>
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="comments.php">Kommentarer</a></li>
+				<li class="nav-item"><a class="nav-link active" aria-current="page" href="rapport.php">Rapport</a></li>
 			</ul>
 		</div>	
 			<!-- Visa länk till profilen om man är inloggad -->

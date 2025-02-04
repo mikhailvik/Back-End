@@ -61,7 +61,19 @@ header {
 	padding-bottom: 20px;
 }
 
+#rapport-section {
+	padding-top:30px;
+	padding-bottom: 30px;
+}
 
+#rapport-section h1 {
+	text-align: center;
+}
+
+#rapport-section h3 {
+	color: white;
+	text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+}
 
 #copyright{
 	background-color: black;
