@@ -22,7 +22,6 @@
 </footer>
 
 
-
 <div id="copyright">
 	<div class="container">
 		<p>Copyright &copy; System<p>

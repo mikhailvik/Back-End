@@ -8,16 +8,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="utf-8">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-
 </head>
-<body>
 
+<body>
 
 <?php 
 include "navigeringen.php";	
 ?>
-
+<!-- Här börjar register-formular -->
 <div class = "formularregister">
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
 	    <h3>Register</h3><br />

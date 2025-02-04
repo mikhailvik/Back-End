@@ -7,18 +7,17 @@
 <link rel="stylesheet" href="css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="utf-8">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
 </head>
-<body>
 
+<body>
 
 <?php 
 include "navigeringen.php";	
 ?>
 
-<div class = "formularlogin">
+<!-- Här börjar comments-formular -->
+<div class = "formular">
    <h2>Kommentarer:</h2>
 	<form action="comments.php" method="POST">
         <label for="name">Ditt namn:</label>
@@ -32,8 +31,7 @@ include "navigeringen.php";
 	<?php include "uppgift7.php";?>
 </div>
 
-
-
+<!-- Här börjar sidans "main-section" -->
 <section id="main-section">
 	<div class="container">
 		<div class="row align-items-center">
@@ -50,21 +48,18 @@ include "navigeringen.php";
 				echo "<p>No comments</p>";
 			}
 
-				// comments från filen
-				//$comments = file_get_contents('comments.txt');
-				//$comments = explode("\n", trim($comments));
-
-				// all comments
-				//foreach(array_reverse($comments) as $comment) {
-				//	echo "<p>$comment</p><br>";
-				//}
+			// comments från filen my test
+			//$comments = file_get_contents('comments.txt');
+			//$comments = explode("\n", trim($comments));
+			// all comments
+			//foreach(array_reverse($comments) as $comment) {
+			//	echo "<p>$comment</p><br>";
+			//}
         	?>
 			</div>
 		</div>
 	</div>
 </section>
-
-
 
 <?php include "footer.php";?>
 </body>

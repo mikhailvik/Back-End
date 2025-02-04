@@ -8,17 +8,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="utf-8">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-
 </head>
-<body>
 
+<body>
 
 <?php 
 include "navigeringen.php";	
 ?>
 
-
+<!-- Här börjar login-formular -->
 <div class = "formularlogin">
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
 		<h3>Log in</h3><br />
@@ -33,8 +31,6 @@ include "navigeringen.php";
 	</form>
 	<?php include "uppgift4.php";?>
 </div>
-
-
 
 
 <?php include "footer.php";?>

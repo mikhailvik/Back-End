@@ -6,13 +6,13 @@
 if (isset($_REQUEST['username'])) {
     $username = test_input($_REQUEST['username']);
 } else {
-    $username = ''; // Если данных нет, присваиваем пустое значение
+    $username = ''; // If there is no data, we assign an empty value
 }
 
 if (isset($_REQUEST['password'])) {
     $password = test_input($_REQUEST['password']);
 } else {
-    $password = ''; // Если данных нет, присваиваем пустое значение
+    $password = ''; // If there is no data, we assign an empty value
 }
 
 //$username = test_input($_REQUEST['username']);
@@ -31,7 +31,6 @@ if ($username == $storedUsername && $password == $storedPassword) {
 }
 
 
-
 // Check / log in user
 if (isset($_SESSION['name'])) {
     $firstVisitDate = date("d-m-Y H:i:s", $_SESSION['first_visit']);  // first visit
@@ -40,7 +39,6 @@ if (isset($_SESSION['name'])) {
 } else {
     echo "<h3>Du är inte inloggad. Logga in!</h3>";
 }
-
 
 
 #Uppgift4
@@ -56,8 +54,6 @@ if (isset($_REQUEST['username'])) {
 if (isset($_REQUEST['password'])) {
     print("Ditt lösenord är: " . htmlspecialchars($_REQUEST['password']) . "<br>");
 }
-
-
 
 
 //Läs data från sessionen
