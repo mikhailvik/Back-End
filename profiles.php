@@ -41,10 +41,20 @@ include "navigeringen.php";
 				//Visa upp inte bara en användare utan alla med hjälp av en freach loop
 				foreach ($stmt as $row)
 				{
+					//Skapa en view_ad.php och tillhörande model_ad.php för att göra annonserna snyggare
 					print("<h3>" .$row['realname']."'s profil:</h3>");
 					print("<p>" .$row['bio']."</p>");
 				
 				?>
+				<!-- Tips för admin-funktionalitet OBS bort med elsen! -->
+				<?php
+				if (!empty($_SESSION['role']) && $_SESSION['role'] == "admin") {
+					print("<span><a href='admin.php?profile=" .row['id']."'>Edit</a></span></p>");
+				}
+				?>
+				 
+                <!-- To-Do: Flytta kommentarsfunktionaliteten till separat vy + modell -->
+
 				Lämna kommentar:
 
 				<form action="index.php">
