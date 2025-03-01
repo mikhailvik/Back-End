@@ -28,5 +28,3 @@ if (file_exists($fileinfo)) {
     $comments = array_reverse($comments);
 }
 
-
-?>

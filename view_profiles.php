@@ -36,7 +36,7 @@ include "navigeringen.php";
 			
 				<h2>Annonser</h2></br>
 				<p>Följande annonser finns på dejtingsajten</p>
-				<?php include ?>
+				<?php include "model_profiles.php" ?>
 				<?php
 				//Visa upp inte bara en användare utan alla med hjälp av en freach loop
 				foreach ($stmt as $row)
