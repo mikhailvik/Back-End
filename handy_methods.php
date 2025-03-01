@@ -22,9 +22,9 @@
     }
 
     //Databaskonfiguration
-    $servername = "localhost"
-    $dbname = "mikhailv"
-    $username = "mikhailv"
+    $servername = "mysql.arcada.fi";
+    $dbname = "mikhailv";
+    $username = "mikhailv";
     include "hemlis.php";
     //hemlis.php ser ut såhär:
     //$dbname = "mikhailv"
