@@ -43,9 +43,6 @@ include "navigeringen.php";
 				</form>
 				<?php include "uppgift5.php";?>
 
-
-				<?php include "model_profiles.php" ?>
-
 			</div>
 		</div>
 	</div>
