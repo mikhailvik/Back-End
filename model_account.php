@@ -1,8 +1,13 @@
 <?php
-    $_SESSION['username'] = "mikhailv"; //Ska senare komma vid inloggning
+    //$_SESSION['username'] = "mikhailv"; //Ska senare komma vid inloggning
+
+    if (!isset($_SESSION['username'])) {
+        echo "Du måste vara inloggad för att visa denna sida.";
+        exit;
+    }
 
     $username = $_SESSION['username']; // Hämta användarnamet för den inloggade användaren
-    print ("Välkommen användare ". $username );
+    print ("Välkommen användare ". $username . "<br>" );
 
     $sql = "SELECT * FROM profiles_table WHERE username = ?"; // SQL kommandot
     $stmt = $conn->prepare($sql); // Förbered SQL "konvertera till C-kod"
@@ -12,6 +17,7 @@
     // To-Do: Kolla om inloggade användaren är Admin
     //Hämta användarid från databasen; behövs för uppdateringen 
     $user_id = $row['prof_id'];
+    print("You are user with id:" . $user_id . "<br>");
 
     //Uppdatera data i databasen
     if (!empty($_REQUEST['firstname']) && !empty($_REQUEST['lastname']) && !empty($_REQUEST['text'])) {

@@ -19,8 +19,8 @@ if (isset($_REQUEST['password'])) {
 //$password = test_input($_REQUEST['password']);
 
 //my test
-$storedUsername = "mikhailv";
-$storedPassword = "222";  
+$storedUsername = "";
+$storedPassword = "";  
 
 if ($username == $storedUsername && $password == $storedPassword) {
     // log in save info

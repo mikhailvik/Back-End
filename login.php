@@ -18,18 +18,16 @@ include "navigeringen.php";
 
 <!-- Här börjar login-formular -->
 <div class = "formularlogin">
-	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
-		<h3>Log in</h3><br />
-		<label for="username">Username:</label><br />
-		<input type="text" id="username" placeholder="alex25" name="username" required="required"><br />
-				
-		<label for="password">Password:</label><br />
-		<input type="password" id="password" placeholder="xxxxx" name="password" required="required"><br />
-		<br>
-		<input type="submit" name="submit_login" value="Log in"><br />
-		<br>		
-	</form>
-	<?php include "uppgift4.php";?>
+<!--! my test
+	if (!empty($_REQUEST['state'])) {
+		include "./view_register.php";
+    } else {
+		include "./view_login.php";
+	} 
+?>-->
+
+	
+	<?php include "view_login.php";?>
 </div>
 
 
