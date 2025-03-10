@@ -8,7 +8,7 @@ if (!empty($_REQUEST['username']) && !empty($_REQUEST['password'])) {
     $passhash = password_hash($password, PASSWORD_DEFAULT);
     
 
-    $stmt_checkIfUserExists = $conn->prepare("SELECT username, passhash FROM profiles_table WHERE username = :name"); 
+    $stmt_checkIfUserExists = $conn->prepare("SELECT prof_id, username, passhash FROM profiles_table WHERE username = :name"); 
     // Bind parametrar
     $stmt_checkIfUserExists->bindParam(":name", $username, PDO::PARAM_STR);
 
@@ -18,7 +18,10 @@ if (!empty($_REQUEST['username']) && !empty($_REQUEST['password'])) {
 
     // If we find user and password is correct
     if ($user && password_verify($password, $user['passhash'])) {
+        //Kolla också lösenord
         $_SESSION['username'] = $username;
+       
+        $_SESSION['user_id'] = $user['prof_id'];
         $_SESSION['first_visit'] = isset($_SESSION['first_visit']) ? $_SESSION['first_visit'] : time();
         
         echo "<h3>Välkommen {$_SESSION['username']}!</h3>";

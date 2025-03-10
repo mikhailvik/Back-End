@@ -8,14 +8,16 @@
 foreach ($stmt as $row)
 {
 	//Skapa en view_ad.php och tillhörande model_ad.php för att göra annonserna snyggare
-	print("<h3>" .$row['firstname']."'s profil:</h3>");
-	print("<p>" .$row['text']."</p>");
+	print("<h3>" .$row['firstname']." ".$row['lastname']."'s profil:</h3>");
+	print("<p>" .$row['text']."");
 
 ?>
 <!-- Tips för admin-funktionalitet OBS bort med elsen! -->
 <?php
-if (!empty($_SESSION['role']) && $_SESSION['role'] == "admin") {
-	print("<span><a href='admin.php?profile=" .row['id']."'>Edit</a></span></p>");
+if (!empty($_SESSION['role_fk']) && $_SESSION['role_fk'] == "admin") {
+	print("<span><a href='admin.php?profile=" .$row['prof_id']."'>Edit</a></span></p>");
+} else {
+    print("<span><a href='admin.php?profile=" .$row['prof_id']."'>Edit</a></span></p>");
 }
 ?>
 
@@ -25,12 +27,10 @@ Lämna kommentar:
 
 <form action="index.php">
 	<label for="kommentar">Kommentar:</label>
-	<input type="text" id="kommentar" name="kommentar"><br><br>
-
-	<label for="reciver_id">Reciever:</label><br>
-	<input type="number" id="reciver_id" name="reciver_id" value='<?= $row['id'] ?>'><br><br>
-
-	<input type="submit" value="Skicka">
+	<input type="text" id="kommentar" name="kommentar"><br>
+	<input type="hidden" name="reciver_id" value='<?= $row['prof_id'] ?>'><br>
+	<input type="submit" value="Skicka"><br>
+	<br>
 </form>
 
 <?php

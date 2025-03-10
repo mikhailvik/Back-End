@@ -1,9 +1,6 @@
 <?php
 
-
 //test uppgift7
-
-
 
 //Hämta användar_id fråm sessionen
 print("<b>" .$_SESSION['user_id']. "</b>");
