@@ -23,6 +23,17 @@
 		<input type="submit" value="Uppdatera profil"><br />
 		<br>
 	</form> 
+
+	<!-- Formulär för att ta bort konto -->
+<h3>Vill du ta bort ditt konto?</h3>
+<p>För att ta bort ditt konto, skriv in ditt lösenord och tryck på "Ta bort konto".</p>
+<form action="profile.php" method="post">
+    <label for="password">Ditt lösenord:</label><br />
+    <input type="password" id="password" name="password" required><br />
+	<br>
+    <input type="submit" name="delete_account" value="Ta bort konto">
+	<br>
+</form>
 	
 	
 

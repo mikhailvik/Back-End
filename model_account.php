@@ -41,5 +41,31 @@
         }
         
     }
+
+
+    // Delete account
+if (isset($_POST['delete_account'])) {
+    $password = test_input($_POST['password']); // Take password from formular
+    //password from database
+    $stmt_checkPassword = $conn->prepare("SELECT passhash FROM profiles_table WHERE prof_id = ?");
+    $stmt_checkPassword->execute([$user_id]);
+    $database_password = $stmt_checkPassword->fetch(PDO::FETCH_ASSOC);
+
+    // Check password
+    if (password_verify($password, $database_password['passhash'])) {
+        // If the password is correct we delete user profile
+        $stmt_deleteProfile = $conn->prepare("DELETE FROM profiles_table WHERE prof_id = ?");
+        if ($stmt_deleteProfile->execute([$user_id])) {
+            echo "Your account has been deleted successfully.";
+            session_destroy(); // log out
+            header("Location: index.php"); // redirect after delete
+            exit;
+        } else {
+            echo "Something went wrong. Could not delete account.";
+        }
+    } else {
+        echo "Invalid password. Could not delete account.";
+    }
+}
   
 ?>
