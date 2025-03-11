@@ -7,7 +7,8 @@
 <link rel="stylesheet" href="css/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="utf-8">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script defer type="text/javascript" src="./script.js"></script>	
 </head>
 
 <body>
@@ -56,7 +57,15 @@ include "navigeringen.php";
 		    <div class="col align-self-center text-center">
 			
 				<h2> Välkommen till min sida</h2></br>
-				<?php include "view_profiles.php";?>
+				<?php 
+				//Se på en enstaka profil
+				if (!empty($_REQUEST['profile'])) {
+					include "view_ad.php";
+				}else {
+					//visa alla profiler
+					include "view_profiles.php";
+				}
+				?>
 				
 			</div>
 		</div>

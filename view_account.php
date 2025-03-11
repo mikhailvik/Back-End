@@ -5,6 +5,7 @@
 
 <?php include "model_account.php" ?>
 
+
 <p>Här kan du <?= $_SESSION['username'] ?> editera din kontaktannons</p>
 
 	<form action="profile.php" method = "get">

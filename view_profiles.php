@@ -23,15 +23,25 @@ if (!empty($_SESSION['role_fk']) && $_SESSION['role_fk'] == "admin") {
 
 <!-- To-Do: Flytta kommentarsfunktionaliteten till separat vy + modell -->
 
+
+<div>
+	<button id="like">Gilla</button>
+</div>	
+
+
+
 Lämna kommentar:
 
-<form action="index.php">
+<form action="index.php" method="POST">
 	<label for="kommentar">Kommentar:</label>
 	<input type="text" id="kommentar" name="kommentar"><br>
-	<input type="hidden" name="reciver_id" value='<?= $row['prof_id'] ?>'><br>
+	<input type="hidden" name="prof_id" value="<?= $row['prof_id'] ?>"><br> <!-- ID профиля -->
+    <input type="hidden" name="reply_id" value="<?= isset($_GET['reply_to']) ? $_GET['reply_to'] : 0 ?>"> <!-- Если это ответ, то указываем reply_id -->
 	<input type="submit" value="Skicka"><br>
 	<br>
 </form>
+
+
 
 <?php
 }

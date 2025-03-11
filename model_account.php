@@ -13,8 +13,14 @@
     $stmt = $conn->prepare($sql); // Förbered SQL "konvertera till C-kod"
     $stmt->execute([$username]); // Kör (OBS SPARA INTE RESULTATET, den returns true on sucess)
     $row = $stmt->fetch(PDO::FETCH_ASSOC); // Hämta datan i form av en associativ array
-
+ 
     // To-Do: Kolla om inloggade användaren är Admin
+    //Kolla ifall admin, lägg till admin sessionsvariabeln - skapa admin session
+    if ($row['role_fk'] == 2) {
+        print ("ADMIN ACTIVATE!");
+        $_SESSION['role_fk'] = "admin"; //Spara rollen från databasen i en sessionsvariabel
+    }
+
     //Hämta användarid från databasen; behövs för uppdateringen 
     $user_id = $row['prof_id'];
     print("You are user with id:" . $user_id . "<br>");
