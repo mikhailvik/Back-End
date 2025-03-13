@@ -1,6 +1,14 @@
 <?php
 //Hämta användarnamet för profilen vi försöker se på
-$username = test_input($_REQUEST['profile']);
+if (isset($_REQUEST['username'])) {
+    $username = test_input($_REQUEST['username']);
+} else {
+    die("Profile parameter is missing");
+}
+
+
+
+
 $sql = "SELECT * FROM profiles_table WHERE username = ?"; // SQL kommandot
 $stmt = $conn->prepare($sql); // Förbered SQL "konvertera till C-kod"
 $stmt->execute([$username]); // Kör (OBS SPARA INTE RESULTATET, den returns true on sucess)

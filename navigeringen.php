@@ -9,6 +9,7 @@
 		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Hem</a></li>
+				<li class="nav-item"><a class="nav-link active" aria-current="page" href="annons.php">Annonser</a></li>
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="register.php">Register</a></li>
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="login.php">Log in</a></li>
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="profile.php">Profilebild</a></li>

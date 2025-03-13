@@ -18,7 +18,14 @@
     //Kolla ifall admin, lägg till admin sessionsvariabeln - skapa admin session
     if ($row['role_fk'] == 2) {
         print ("ADMIN ACTIVATE!");
+
         $_SESSION['role_fk'] = "admin"; //Spara rollen från databasen i en sessionsvariabel
+    }
+
+    if ($row['role_fk'] == 1) {
+        print ("USER ACTIVATE!");
+
+        $_SESSION['role_fk'] = "user"; //Spara rollen från databasen i en sessionsvariabel
     }
 
     //Hämta användarid från databasen; behövs för uppdateringen 

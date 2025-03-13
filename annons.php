@@ -34,9 +34,9 @@ include "navigeringen.php";
 		<div class="row align-items-center">
 		    <div class="col align-self-center text-center">
 			
-				<h2><p>Antal unika besökare: </h2></br>
-				<?php include "uppgift6.php";
-				echo $unique_count;
+				<h2><p>Annonser</h2></br>
+				<?php
+				include "view_annons.php";
 				?>
 			</div>
 		</div>

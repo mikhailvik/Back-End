@@ -59,7 +59,7 @@ include "navigeringen.php";
 				<h2> Välkommen till min sida</h2></br>
 				<?php 
 				//Se på en enstaka profil
-				if (!empty($_REQUEST['profile'])) {
+				if (!empty($_REQUEST['username'])) {
 					include "view_ad.php";
 				}else {
 					//visa alla profiler

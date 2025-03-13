@@ -35,6 +35,13 @@
     <input type="submit" name="delete_account" value="Ta bort konto">
 	<br>
 </form>
+
+<?php
+
+if (isset($_SESSION['username'])) {
+    echo '<a href="logout.php">Logga ut</a>'; //Log ut
+}
+?>
 	
 	
 
