@@ -10,6 +10,14 @@
 ?>
 
 
+
+
+
+
+
+
+
+
 <?php
 // Antal annonser per sida
 $amount_onepage = 3; // 5 annonser per sida
@@ -24,6 +32,35 @@ $offset = ($page - 1) * $amount_onepage;
 // Bestäm sortering
 $order_by = 'salary'; // Som standard sortera efter lön
 $order_dir = 'ASC'; // Sorteringsriktning (ASC eller DESC)
+
+// Förbered filter
+$forwhere = [];
+$forparameter = [];
+
+// Filtrera efter preferens
+if (isset($_GET['preference']) && $_GET['preference'] != '') {
+    $forwhere[] = 'preference = :preference';
+    $forparameter[':preference'] = $_GET['preference'];
+}
+
+// Filtrera efter antal likes
+if (isset($_GET['likes']) && $_GET['likes'] != '') {
+    $forwhere[] = 'likes >= :likes';
+    $forparameter[':likes'] = $_GET['likes'];
+}
+
+// Om det finns filter, lägg till det i frågan
+$whereSql = '';
+if (count($forwhere) > 0) {
+    $whereSql = 'WHERE ' . implode(' AND ', $forwhere);
+}
+
+/// SQL-fråga med paginering
+$sql = "SELECT * FROM profiles_table $whereSql ORDER BY $order_by $order_dir LIMIT $amount_onepage OFFSET $offset";
+$stmt = $conn->prepare($sql);
+$stmt->execute($forparameter);
+
+
 
 // Kontrollera vilket sorteringskriterium som valts
 if (isset($_GET['sort_by'])) {

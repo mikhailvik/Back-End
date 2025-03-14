@@ -50,29 +50,29 @@ include "navigeringen.php";
 		</div>
 	</div>
 </section>
-
+<!-- my test " 
 <section class="main-section">
 	<div class="container">
 		<div class="row align-items-center">
 		    <div class="col align-self-center text-center">
 			
 				<h2> Välkommen till min sida</h2></br>
-				<?php 
+				//<?php 
 				//Se på en enstaka profil
-				if (!empty($_REQUEST['username'])) {
-					include "view_ad.php";
-				}else {
+				//if (!empty($_REQUEST['username'])) {
+					//include "view_ad.php";
+				//}else {
 					//visa alla profiler
-					include "view_profiles.php";
-				}
-				?>
+					//include "view_profiles.php";
+				//}
+				//?>
 				
 			</div>
 		</div>
 	</div>
 </section>
 
-
+-->
 
 
 <?php include "footer.php";?>

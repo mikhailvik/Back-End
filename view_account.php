@@ -5,6 +5,9 @@
 
 <?php include "model_account.php" ?>
 
+<br><form action="annons.php" method="get">
+        <button type="submit" class="btn btn-success">Se alla annonser</button>
+</form><br>
 
 <p>Här kan du <?= $_SESSION['username'] ?> editera din kontaktannons</p>
 
@@ -21,7 +24,7 @@
 		<input type="text" id="text" placeholder="..." name="text" value="<?= $row['text'] ?>"><br />
 
 		<br>
-		<input type="submit" value="Uppdatera profil"><br />
+		<input type="submit" class="btn btn-primary" value="Uppdatera profil"><br />
 		<br>
 	</form> 
 
@@ -32,7 +35,7 @@
     <label for="password">Ditt lösenord:</label><br />
     <input type="password" id="password" name="password" required><br />
 	<br>
-    <input type="submit" name="delete_account" value="Ta bort konto">
+    <input type="submit" class="btn btn-danger" name="delete_account" value="Ta bort konto">
 	<br>
 </form>
 

@@ -17,13 +17,13 @@
     // To-Do: Kolla om inloggade användaren är Admin
     //Kolla ifall admin, lägg till admin sessionsvariabeln - skapa admin session
     if ($row['role_fk'] == 2) {
-        print ("ADMIN ACTIVATE!");
+        print ("ADMIN ACTIVATE! ");
 
         $_SESSION['role_fk'] = "admin"; //Spara rollen från databasen i en sessionsvariabel
     }
 
     if ($row['role_fk'] == 1) {
-        print ("USER ACTIVATE!");
+        print ("USER ACTIVATE! ");
 
         $_SESSION['role_fk'] = "user"; //Spara rollen från databasen i en sessionsvariabel
     }
@@ -31,6 +31,7 @@
     //Hämta användarid från databasen; behövs för uppdateringen 
     $user_id = $row['prof_id'];
     print("You are user with id:" . $user_id . "<br>");
+
 
     //Uppdatera data i databasen
     if (!empty($_REQUEST['firstname']) && !empty($_REQUEST['lastname']) && !empty($_REQUEST['text'])) {

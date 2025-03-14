@@ -23,7 +23,7 @@ include "navigeringen.php";
         <label for="name">Ditt namn:</label>
         <input type="text" id="name" name="name" required><br><br>
 
-        <label for="comment">Kommentar:</label><br>
+        <label for="comment">Kommentar för sajten:</label><br>
         <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br><br>
 
         <input type="submit" value="Skicka">
@@ -32,7 +32,7 @@ include "navigeringen.php";
 </div>
 
 <!-- Här börjar sidans "main-section" -->
-<section id="main-section">
+<section class="main-section">
 	<div class="container">
 		<div class="row align-items-center">
 		    <div class="col align-self-center text-center">

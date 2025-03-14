@@ -64,6 +64,6 @@ if (isset($_GET['prof_id'])) {
 
 <!-- Formulär för att skicka in "Gilla"-knappen -->
 <form action="userannons.php?prof_id=<?= $prof_id ?>" method="POST">
-    <button type="submit" name="like" id="like">Gilla</button>
-	<button type="button" onclick="window.location.href='annons.php';">Tillbaka</button>
+    <button type="submit" class="btn btn-danger" name="like" id="like">Gilla</button>
+	<button type="button" class="btn btn-success" onclick="window.location.href='annons.php';">Tillbaka</button>
 </form>
