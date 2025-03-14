@@ -34,7 +34,7 @@ include "navigeringen.php";
 		<div class="row align-items-center">
 		    <div class="col align-self-center text-center">
 			
-				<h2><p>Annonser</h2></br>
+				<h2><p>Annonser</h2>
 				<?php
 				include "view_annons.php";
 				?>

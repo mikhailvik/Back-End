@@ -1,13 +1,64 @@
 <?php
 
-$sql = "SELECT * FROM profiles_table";
+//$sql = "SELECT * FROM profiles_table";
 // ToDo: Kör SQL kof på databasen
 //$conn = new PDO("mysql:host=$servername; dbname=$dbname", $username, $password);
 //print("Connected to DB");
-$stmt = $conn->query($sql);
+//$stmt = $conn->query($sql);
 //$result = $stmt->fetch(PDO::FETCH_ASSOC);
 //print_r($result);
 ?>
+
+
+<?php
+// Antal annonser per sida
+$amount_onepage = 3; // 5 annonser per sida
+
+// Hämta aktuell sida
+// Visa sida 1 om ingen är angiven,
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+// Beräkna offset för SQL-frågan
+$offset = ($page - 1) * $amount_onepage;
+
+// Bestäm sortering
+$order_by = 'salary'; // Som standard sortera efter lön
+$order_dir = 'ASC'; // Sorteringsriktning (ASC eller DESC)
+
+// Kontrollera vilket sorteringskriterium som valts
+if (isset($_GET['sort_by'])) {
+    if ($_GET['sort_by'] == 'salary') {
+        $order_by = 'salary';
+    } elseif ($_GET['sort_by'] == 'likes') {
+        $order_by = 'likes';  // Sortera efter 'likes' från profiles_table
+    }
+}
+
+// Ny SQL-fråga med paginering och sortering
+$sql = "SELECT profiles_table.* 
+        FROM profiles_table
+        ORDER BY $order_by $order_dir
+        LIMIT $amount_onepage OFFSET $offset";
+
+// Förbered och kör SQL-frågan
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+
+// Hämta totalt antal annonser för att beräkna antal sidor
+$sql_count = "SELECT COUNT(*) FROM profiles_table";
+$stmt_count = $conn->prepare($sql_count);
+$stmt_count->execute();
+$total_ads = $stmt_count->fetchColumn();
+
+// Beräkna totalt antal sidor
+$total_pages = ceil($total_ads / $amount_onepage);
+?>
+
+
+
+
+
+
 
 
 

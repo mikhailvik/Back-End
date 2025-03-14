@@ -25,6 +25,12 @@ header {
 }
 
 
+#profname {
+	padding-right: 10px;
+	padding-left: 10px;
+  }
+
+
 .formularregister {
 	background-image: url("../images/bibliotek4.jpg");
 	background-size: cover;

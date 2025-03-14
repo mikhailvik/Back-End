@@ -23,10 +23,12 @@
 				<?php 
 					if (isset($_SESSION['username'])) {
 						//print('<div>Profile</div>');
-						print("<a href='./profile.php'>" . $_SESSION['username']."'s profile</a>");
+						print("<div id=profname><a href='./profile.php'>" . $_SESSION['username']."'s profile</a></div>");
+						echo '<a href="logout.php">Log ut</a>';
 					}else {
 						print('<a href="login.php">Log in</a>');
 					};
+
 				?>		
 	</div>
 </nav>

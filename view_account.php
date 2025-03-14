@@ -38,9 +38,6 @@
 
 <?php
 
-if (isset($_SESSION['username'])) {
-    echo '<a href="logout.php">Logga ut</a>'; //Log ut
-}
 ?>
 	
 	
