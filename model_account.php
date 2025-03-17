@@ -22,6 +22,12 @@
         $_SESSION['role_fk'] = "admin"; //Spara rollen från databasen i en sessionsvariabel
     }
 
+    if ($row['role_fk'] == 3) {
+        print ("MANAGER ACTIVATE! ");
+
+        $_SESSION['role_fk'] = "manager"; //Spara rollen från databasen i en sessionsvariabel
+    }
+
     if ($row['role_fk'] == 1) {
         print ("USER ACTIVATE! ");
 
@@ -36,19 +42,35 @@
     //Uppdatera data i databasen
     if (!empty($_REQUEST['firstname']) && !empty($_REQUEST['lastname']) && !empty($_REQUEST['text'])) {
        
-        $firstname = test_input($_REQUEST['firstname']); 
+        $firstname = test_input($_REQUEST['firstname']);
         $lastname = test_input($_REQUEST['lastname']);
+        $email = test_input($_REQUEST['email']);
+        $zipcode = test_input($_REQUEST['zipcode']);
         $text = test_input($_REQUEST['text']);
+        $salary = test_input($_REQUEST['salary']);
+        $preference = test_input($_REQUEST['preference']);
 
-        $stmt_updateProfile = $conn->prepare("UPDATE profiles_table SET firstname = :firstname, lastname = :lastname, text = :text WHERE prof_id = :pid");
+        $stmt_updateProfile = $conn->prepare("UPDATE profiles_table SET 
+            firstname = :firstname, 
+            lastname = :lastname, 
+            email = :email,
+            zipcode = :zipcode, 
+            text = :text, 
+            salary = :salary, 
+            preference = :preference 
+            WHERE prof_id = :pid");
       
-	    $stmt_updateProfile->bindParam(':firstname', $firstname, PDO::PARAM_STR);
-        $stmt_updateProfile->bindParam(':lastname', $lastname, PDO::PARAM_STR);
-	    $stmt_updateProfile->bindParam(':text', $text, PDO::PARAM_STR);
-        $stmt_updateProfile->bindParam(':pid', $user_id, PDO::PARAM_INT);
+      $stmt_updateProfile->bindParam(':firstname', $firstname, PDO::PARAM_STR);
+      $stmt_updateProfile->bindParam(':lastname', $lastname, PDO::PARAM_STR);
+      $stmt_updateProfile->bindParam(':email', $email, PDO::PARAM_STR);
+      $stmt_updateProfile->bindParam(':zipcode', $zipcode, PDO::PARAM_STR);
+      $stmt_updateProfile->bindParam(':text', $text, PDO::PARAM_STR);
+      $stmt_updateProfile->bindParam(':salary', $salary, PDO::PARAM_INT);
+      $stmt_updateProfile->bindParam(':preference', $preference, PDO::PARAM_INT);
+      $stmt_updateProfile->bindParam(':pid', $user_id, PDO::PARAM_INT);
 
         if ($stmt_updateProfile->execute()) {
-            echo " Your profile has been updated";
+            echo "<span style='color: red;'>Your profile has been updated</span>";
          }
         else{
            echo " Something went wrong";

@@ -13,45 +13,42 @@
 // $result = $stmt -> fetch(PDO::FETCH_ASSOC);
 
 
-
-// Предполагаем, что у вас уже есть подключение к базе данных $conn
-
-// Получаем имя пользователя из сессии
+// Hämtar användarnamnet från sessionen
 $username = $_SESSION['username'];
 
-// Подготавливаем SQL-запрос для получения prof_id по username
+// att hämta prof_id baserat på användarnamn
 $sql = "SELECT prof_id FROM profiles_table WHERE username = :username LIMIT 1";
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(':username', $username, PDO::PARAM_STR);
 $stmt->execute();
 
-// Извлекаем результат
+// Hämtar resultatet
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if ($user) {
     $prof_id = $user['prof_id'];
-    // Теперь у вас есть prof_id, можно использовать его для получения комментариев
+    // Nu har du prof_id, du kan använda det för att hämta kommentarer
 } else {
-    // Если пользователь не найден, обрабатываем ошибку
-    echo "Пользователь не найден.";
+    // Om användaren inte hittades, fel
+    echo "Användare inte hittad.";
 }
 ?>
 
 <?php
 if (isset($prof_id)) {
-    // Подготавливаем SQL-запрос для получения комментариев для данного prof_id
+    // att hämta kommentarer för detta prof_id
     $sql = "SELECT * FROM comments_table WHERE prof_fk = :prof_id ORDER BY created_time DESC";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':prof_id', $prof_id, PDO::PARAM_INT);
     $stmt->execute();
 
-    // Извлекаем комментарии
+    // Hämtar kommentarer
     $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Теперь $comments содержит все комментарии для данного prof_id
-    // Вы можете передать этот массив в ваш шаблон для отображения
+    // Nu innehåller $comments alla kommentarer för detta prof_id
+   
 } else {
-    // Если prof_id не установлен, обрабатываем ошибку
-    echo "Ошибка: prof_id не установлен.";
+    // Om prof_id inte är inställt, fel
+    echo "Fel: prof_id är inte inställt.";
 }
 ?>

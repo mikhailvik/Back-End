@@ -50,7 +50,9 @@ foreach ($stmt as $row)
 <?php
 
 if (!empty($_SESSION['role_fk']) && $_SESSION['role_fk'] == "admin") {
-    echo "<span><button class='btn btn-success' onclick='window.location.href=\"adminannons.php?prof_id=" . htmlspecialchars($row['prof_id']) . "\"'>See and Edit</button></span></p>";
+    echo "<span><button class='btn btn-success' onclick='window.location.href=\"adminannons.php?prof_id=" . htmlspecialchars($row['prof_id']) . "\"'>See and Delete</button></span></p>";
+ } else if (!empty($_SESSION['role_fk']) && $_SESSION['role_fk'] == "manager") {
+        echo "<span><button class='btn btn-success' onclick='window.location.href=\"managerannons.php?prof_id=" . htmlspecialchars($row['prof_id']) . "\"'>See and Edit</button></span></p>";
 } else if (!empty($_SESSION['role_fk']) && $_SESSION['role_fk'] == "user") {
     echo "<span><button class='btn btn-success' onclick='window.location.href=\"userannons.php?prof_id=" . htmlspecialchars($row['prof_id']) . "\"'>See more</button></span></p>";
 } else {
