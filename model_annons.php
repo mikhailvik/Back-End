@@ -9,15 +9,6 @@
 //print_r($result);
 ?>
 
-
-
-
-
-
-
-
-
-
 <?php
 // Antal annonser per sida
 $amount_onepage = 3; // 5 annonser per sida
@@ -93,45 +84,77 @@ $total_pages = ceil($total_ads / $amount_onepage);
 
 
 
-
-
-
-
-
-
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['kommentar'])) {
-    // Получаем данные из формы
-    $comment = test_input($_POST['kommentar']);
-    $prof_id = (int)$_POST['prof_id'];
-    $reply_id = isset($_POST['reply_id']) ? (int)$_POST['reply_id'] : 0;  // Если это не ответ, устанавливаем reply_id в 0
+// Kontrollera om formuläret har skickats och om data finns
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['kommentar']) && isset($_POST['prof_fk'])) {
+    
+    // Rensa kommentartexten
+    $comment = test_input($_POST['kommentar']);  
+    
+    // Profil-ID och svar-ID för kommentaren
+    $prof_fk = $_POST['prof_fk'];  // Profil-ID som kommentaren tillhör
+    $reply_fk = isset($_POST['reply_fk']) && $_POST['reply_fk'] != 0 ? (int)$_POST['reply_fk'] : NULL;  // Kommentar-ID som detta är ett svar på (eller NULL)
 
-    // Если это ответ на комментарий, проверим, существует ли коммент с таким ID
-    if ($reply_id !== 0) {
-        // Проверяем, существует ли комментарий с данным reply_id
-        $stmt_check_reply = $conn->prepare("SELECT com_id FROM comments_table WHERE com_id = :reply_id");
-        $stmt_check_reply->bindParam(':reply_id', $reply_id, PDO::PARAM_INT);
-        $stmt_check_reply->execute();
-        
-        // Если комментарий с reply_id не существует, выводим ошибку
-        if ($stmt_check_reply->rowCount() == 0) {
-            echo "Комментарий, на который вы хотите ответить, не существует!";
-            exit;
-        }
-    }
+    // Kontrollera om användaren är inloggad
+    if (!empty($_SESSION['username'])) {
+        // Hämta användarnamn från sessionen
+        $username = $_SESSION['username'];
 
-    // Вставляем комментарий в базу данных
-    $sql = "INSERT INTO comments_table (user, comment, prof_fk, reply_id) VALUES (:user, :comment, :prof_id, :reply_id)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':user', $_SESSION['username'], PDO::PARAM_STR);
-    $stmt->bindParam(':comment', $comment, PDO::PARAM_STR);
-    $stmt->bindParam(':prof_id', $prof_id, PDO::PARAM_INT);
-    $stmt->bindParam(':reply_id', $reply_id, PDO::PARAM_INT); // Если это ответ, сохраняем reply_id
+        // Hämta användarens ID baserat på användarnamnet från sessionen
+        $sql_user = "SELECT prof_id FROM profiles_table WHERE username = :username";
+        $stmt_user = $conn->prepare($sql_user);
+        $stmt_user->bindParam(':username', $username, PDO::PARAM_STR);
+        $stmt_user->execute();
+        $user = $stmt_user->fetch();
 
-    if ($stmt->execute()) {
-        echo "Комментарий успешно добавлен!";
-    } else {
-        echo "Ошибка при добавлении комментария.";
-    }
-}
+        if ($user) {
+            $user_fk = $user['prof_id'];  // Användarens ID
+
+            // Om reply_fk inte är NULL, kontrollera om kommentaren finns
+            if ($reply_fk !== NULL) {
+                // Kontrollera om kommentaren finns med detta ID
+                $sql_check_reply = "SELECT com_id FROM comments_table WHERE com_id = :reply_fk";
+                $stmt_check_reply = $conn->prepare($sql_check_reply);
+                $stmt_check_reply->bindParam(':reply_fk', $reply_fk, PDO::PARAM_INT);
+                $stmt_check_reply->execute();
+                
+                // Om kommentaren inte hittas, skriv ut ett felmeddelande
+                if ($stmt_check_reply->rowCount() == 0) {
+                    echo "Kommentaren som du försöker svara på finns inte!";
+                    exit;
+                }
+            }
+
+            // insert kommentaren
+            $sql = "INSERT INTO comments_table (prof_fk, user_fk, comment, reply_fk) 
+                    VALUES (:prof_fk, :user_fk, :comment, :reply_fk)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':prof_fk', $prof_fk, PDO::PARAM_INT); 
+            $stmt->bindParam(':user_fk', $user_fk, PDO::PARAM_INT);  
+            $stmt->bindParam(':comment', $comment, PDO::PARAM_STR);  
+            $stmt->bindParam(':reply_fk', $reply_fk, PDO::PARAM_INT); 
+
+
+
+            // Utför frågan och kontrollera resultatet
+            if ($stmt->execute()) {
+                echo "Kommentaren har lagts till!";
+            } else {
+                echo "Fel vid tillägg av kommentar.";
+                // Logga felet om frågan inte kunde genomföras
+                print_r($stmt->errorInfo());
+            }
+
+        }   else {
+                echo "Användaren hittades inte!";
+            }
+
+        }   else {
+                echo "Du måste vara inloggad för att lägga till en kommentar!";
+            }
+
+
+    }  
 ?>
+
+

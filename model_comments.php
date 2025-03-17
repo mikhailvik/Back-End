@@ -14,17 +14,44 @@
 
 
 
-// Получаем user_id из сессии
+// Предполагаем, что у вас уже есть подключение к базе данных $conn
 
-$user_id = $_SESSION['user_id']; // Получаем user_id из сессии
+// Получаем имя пользователя из сессии
+$username = $_SESSION['username'];
 
-// SQL запрос, который вытаскивает все комментарии на профиль
-$sql = "SELECT * FROM comments_table WHERE prof_fk = :user_id ORDER BY com_id DESC"; 
+// Подготавливаем SQL-запрос для получения prof_id по username
+$sql = "SELECT prof_id FROM profiles_table WHERE username = :username LIMIT 1";
 $stmt = $conn->prepare($sql);
-$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+$stmt->bindParam(':username', $username, PDO::PARAM_STR);
 $stmt->execute();
 
+// Извлекаем результат
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+if ($user) {
+    $prof_id = $user['prof_id'];
+    // Теперь у вас есть prof_id, можно использовать его для получения комментариев
+} else {
+    // Если пользователь не найден, обрабатываем ошибку
+    echo "Пользователь не найден.";
+}
 ?>
 
+<?php
+if (isset($prof_id)) {
+    // Подготавливаем SQL-запрос для получения комментариев для данного prof_id
+    $sql = "SELECT * FROM comments_table WHERE prof_fk = :prof_id ORDER BY created_time DESC";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':prof_id', $prof_id, PDO::PARAM_INT);
+    $stmt->execute();
 
+    // Извлекаем комментарии
+    $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Теперь $comments содержит все комментарии для данного prof_id
+    // Вы можете передать этот массив в ваш шаблон для отображения
+} else {
+    // Если prof_id не установлен, обрабатываем ошибку
+    echo "Ошибка: prof_id не установлен.";
+}
+?>

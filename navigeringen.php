@@ -14,7 +14,8 @@
 					<!--<li class="nav-item"><a class="nav-link active" aria-current="page" href="login.php">Log in</a></li>-->
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="visits.php">Besökare</a></li>
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="comments.php">Kommentarer</a></li>
-				<li class="nav-item"><a class="nav-link active" aria-current="page" href="rapport.php">Rapport</a></li>
+				<li class="nav-item"><a class="nav-link active" aria-current="page" href="rapport.php">Rapport 1</a></li>
+				<li class="nav-item"><a class="nav-link active" aria-current="page" href="rapport2.php">Rapport 2</a></li>
 				<li class="nav-item"><a class="nav-link active" aria-current="page" href="register.php">Register</a></li>
 			</ul>
 		</div>	
